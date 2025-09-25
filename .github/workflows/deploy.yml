@@ -43,13 +43,11 @@ jobs:
 
       - name: Build project
         run: bun run build
-        env:
-          VITE_BASE_PATH: '/anastasiya-gurina-portfolio/'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
 
   # Deployment job
   deploy:

@@ -1,12 +1,16 @@
 import { defineConfig } from "@solidjs/start/config";
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from "@tailwindcss/postcss";
 
 export default defineConfig({
   server: {
     static: true,
   },
   vite: {
-    plugins: [tailwindcss()],
-    base: "/Anastasiya-Gurina/",
+    css: {
+      postcss: {
+        plugins: [tailwindcss()],
+      },
+    },
   },
+  routeDir: "/Anastasiya-Gurina/",
 });

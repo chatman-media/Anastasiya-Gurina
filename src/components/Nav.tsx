@@ -1,6 +1,5 @@
 import { A, useLocation } from "@solidjs/router";
 import { ThemeToggle } from "~/components/theme-toggle";
-import { Button } from "~/components/ui/button";
 
 export default function Nav() {
   const location = useLocation();

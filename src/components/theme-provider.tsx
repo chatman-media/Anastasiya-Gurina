@@ -1,4 +1,11 @@
-import { createContext, createSignal, onMount, type ParentComponent, useContext } from "solid-js";
+import {
+  createContext,
+  createSignal,
+  type JSX,
+  onMount,
+  type ParentComponent,
+  useContext,
+} from "solid-js";
 
 export type Theme = "dark" | "light" | "system";
 

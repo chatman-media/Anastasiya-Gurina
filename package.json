@@ -14,7 +14,10 @@
     "ci": "biome ci ."
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "solid-js": "^1.9.9",
+    "tailwind-merge": "^3.3.1",
     "vinxi": "^0.5.8"
   },
   "devDependencies": {

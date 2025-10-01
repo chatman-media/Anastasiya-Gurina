@@ -36,20 +36,6 @@ export function PhotoGallery({ photos }: PhotoGalleryProps) {
           layout="rows"
           targetRowHeight={200}
           onClick={({ index }) => setSelectedPhoto(photos[index])}
-          className="cursor-pointer"
-          sizes={(containerWidth) => {
-            if (containerWidth < 640) return '100vw'
-            if (containerWidth < 1024) return '50vw'
-            return '33vw'
-          }}
-          componentsProps={{
-            containerProps: {
-              className: 'gap-2 md:gap-4'
-            },
-            imageProps: {
-              className: 'rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300'
-            }
-          }}
         />
 
         {selectedPhoto && (

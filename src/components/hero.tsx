@@ -8,7 +8,7 @@ export function Hero() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-background">
+    <section className="relative min-h-screen flex items-center justify-center bg-background hero-gradient">
       <div className="container px-4 md:px-6 text-center">
         <div className="space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
@@ -22,13 +22,13 @@ export function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg" asChild>
+            <Button size="lg" className="text-lg btn-primary" asChild>
               <a href="#gallery">
                 {t('view_gallery')}
                 <ArrowDown className="ml-2 h-5 w-5" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-lg" asChild>
+            <Button size="lg" variant="outline" className="text-lg btn-outline" asChild>
               <a href="#contact">
                 {t('contact_me')}
               </a>

@@ -17,12 +17,13 @@ A modern, responsive photography portfolio website built with React, TypeScript,
 
 ### 🚀 Technologies Used
 
-- **Frontend**: React 19, TypeScript, Tailwind CSS
+- **Frontend**: React 18, TypeScript, Tailwind CSS
 - **Build Tool**: Vite with React Server Components
 - **UI Components**: Radix UI components
 - **Icons**: Lucide React
 - **Internationalization**: i18next
 - **Styling**: Tailwind CSS with class-variance-authority
+- **Package Manager**: Bun
 
 ### 📁 Project Structure
 
@@ -50,22 +51,22 @@ src/
 
 1. **Install dependencies**:
    ```bash
-   npm install
+   bun install
    ```
 
 2. **Start development server**:
    ```bash
-   npm run dev
+   bun run dev
    ```
 
 3. **Build for production**:
    ```bash
-   npm run build
+   bun run build
    ```
 
 4. **Preview production build**:
    ```bash
-   npm run preview
+   bun run preview
    ```
 
 ### 🎨 Customization
@@ -78,10 +79,17 @@ src/
 ### 📱 Deployment
 
 The project is ready for deployment on various platforms:
-- **GitHub Pages**: Configure in repository settings
+- **GitHub Pages**: Automatically deploys via GitHub Actions when pushing to main branch
 - **Netlify**: Connect GitHub repository
 - **Vercel**: Import from GitHub
 - **Custom Server**: Build and serve static files
+
+#### GitHub Pages Configuration
+
+The project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically builds and deploys the site to GitHub Pages. Make sure to:
+1. Enable GitHub Pages in your repository settings
+2. Set the source to "GitHub Actions"
+3. Push to the main branch to trigger deployment
 
 ---
 
@@ -100,12 +108,13 @@ The project is ready for deployment on various platforms:
 
 ### 🚀 Используемые технологии
 
-- **Фронтенд**: React 19, TypeScript, Tailwind CSS
+- **Фронтенд**: React 18, TypeScript, Tailwind CSS
 - **Инструмент сборки**: Vite с React Server Components
 - **UI компоненты**: Radix UI компоненты
 - **Иконки**: Lucide React
 - **Интернационализация**: i18next
 - **Стилизация**: Tailwind CSS с class-variance-authority
+- **Менеджер пакетов**: Bun
 
 ### 📁 Структура проекта
 
@@ -133,22 +142,22 @@ src/
 
 1. **Установка зависимостей**:
    ```bash
-   npm install
+   bun install
    ```
 
 2. **Запуск сервера разработки**:
    ```bash
-   npm run dev
+   bun run dev
    ```
 
 3. **Сборка для продакшена**:
    ```bash
-   npm run build
+   bun run build
    ```
 
 4. **Предпросмотр продакшн-сборки**:
    ```bash
-   npm run preview
+   bun run preview
    ```
 
 ### 🎨 Настройка
@@ -161,10 +170,17 @@ src/
 ### 📱 Развертывание
 
 Проект готов к развертыванию на различных платформах:
-- **GitHub Pages**: Настройте в параметрах репозитория
+- **GitHub Pages**: Автоматическое развёртывание через GitHub Actions при пуше в main ветку
 - **Netlify**: Подключите репозиторий GitHub
 - **Vercel**: Импортируйте из GitHub
 - **Собственный сервер**: Соберите и обслуживайте статические файлы
+
+#### Конфигурация GitHub Pages
+
+Проект включает рабочий процесс GitHub Actions (`.github/workflows/deploy.yml`), который автоматически собирает и разворачивает сайт на GitHub Pages. Убедитесь, что:
+1. Включили GitHub Pages в настройках репозитория
+2. Установили источник на "GitHub Actions"
+3. Отправили изменения в ветку main для запуска деплоя
 
 ---
 

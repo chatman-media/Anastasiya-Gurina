@@ -70,7 +70,9 @@ export function ThemeProvider({
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
       <ThemeWrapper theme={theme}>
-        {children}
+        <div className="transition-colors duration-300 ease-in-out">
+          {children}
+        </div>
       </ThemeWrapper>
     </ThemeProviderContext.Provider>
   )

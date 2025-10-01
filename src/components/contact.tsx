@@ -73,7 +73,7 @@ export function Contact() {
               })}
               
               <div className="pt-4">
-                <Button className="w-full" asChild>
+                <Button className="w-full btn-primary" asChild>
                   <a href="mailto:anastasiya.gurina@email.com">
                     {t('contact_me')}
                   </a>

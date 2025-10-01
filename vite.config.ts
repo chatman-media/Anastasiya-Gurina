@@ -6,6 +6,7 @@ import { defineConfig } from 'vite'
 // import inspect from "vite-plugin-inspect";
 
 export default defineConfig({
+  base: process.env.BASE_URL || '/',
   plugins: [
     rsc({
       // `entries` option is only a shorthand for specifying each `rollupOptions.input` below
@@ -35,6 +36,7 @@ export default defineConfig({
 
   // specify entry point for each environment.
   // (currently the plugin assumes `rollupOptions.input.index` for some features.)
+  publicDir: 'public',
   environments: {
     // `rsc` environment loads modules with `react-server` condition.
     // this environment is responsible for:

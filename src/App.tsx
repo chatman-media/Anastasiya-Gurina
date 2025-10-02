@@ -1,41 +1,44 @@
-import { Header } from './components/header'
-import { Hero } from './components/hero'
-import { About } from './components/about'
-import { PhotoGallery } from './components/photo-gallery'
-import { Contact } from './components/contact'
-import { Footer } from './components/footer'
-import { ThemeProvider } from './components/theme-provider'
+import { Header } from "./components/header";
+import { Hero } from "./components/hero";
+import { About } from "./components/about";
+import { PhotoGallery } from "./components/photo-gallery";
+import { Contact } from "./components/contact";
+import { Footer } from "./components/footer";
+import { ThemeProvider } from "./components/theme-provider";
 
 // Фотографии из папки public/photos
+// В dev режиме используем /photos/, в production - с base path
+const baseUrl = import.meta.env.BASE_URL;
+
 const portfolioPhotos = [
-  '/photos/DSC09940.jpg',
-  '/photos/DSC09941.jpg',
-  '/photos/DSC09945.jpg',
-  '/photos/DSC09947.jpg',
-  '/photos/DSC09951.jpg',
-  '/photos/DSC09952.jpg',
-  '/photos/DSC09957.jpg',
-  '/photos/DSC09959.jpg',
-  '/photos/DSC09961.jpg',
-  '/photos/DSC09963.jpg',
-  '/photos/DSC09964.jpg',
-  '/photos/DSC09967.JPG',
-  '/photos/DSC09969.jpg',
-  '/photos/DSC09972.jpg',
-  '/photos/DSC09974.jpg',
-  '/photos/DSC09977.jpg',
-  '/photos/DSC09978.jpg',
-  '/photos/DSC09982.jpg',
-  '/photos/DSC09984.jpg',
-  '/photos/DSC09985.jpg',
-  '/photos/DSC09988.jpg',
-  '/photos/DSC09989.jpg',
-  '/photos/DSC09991.jpg',
-  '/photos/DSC09993.jpg',
-  '/photos/DSC09995.jpg',
-  '/photos/DSC09997.jpg',
-  '/photos/DSC09999.jpg'
-]
+  `${baseUrl}photos/DSC09940.jpg`,
+  `${baseUrl}photos/DSC09941.jpg`,
+  `${baseUrl}photos/DSC09945.jpg`,
+  `${baseUrl}photos/DSC09947.jpg`,
+  `${baseUrl}photos/DSC09951.jpg`,
+  `${baseUrl}photos/DSC09952.jpg`,
+  `${baseUrl}photos/DSC09957.jpg`,
+  `${baseUrl}photos/DSC09959.jpg`,
+  `${baseUrl}photos/DSC09961.jpg`,
+  `${baseUrl}photos/DSC09963.jpg`,
+  `${baseUrl}photos/DSC09964.jpg`,
+  `${baseUrl}photos/DSC09967.JPG`,
+  `${baseUrl}photos/DSC09969.jpg`,
+  `${baseUrl}photos/DSC09972.jpg`,
+  `${baseUrl}photos/DSC09974.jpg`,
+  `${baseUrl}photos/DSC09977.jpg`,
+  `${baseUrl}photos/DSC09978.jpg`,
+  `${baseUrl}photos/DSC09982.jpg`,
+  `${baseUrl}photos/DSC09984.jpg`,
+  `${baseUrl}photos/DSC09985.jpg`,
+  `${baseUrl}photos/DSC09988.jpg`,
+  `${baseUrl}photos/DSC09989.jpg`,
+  `${baseUrl}photos/DSC09991.jpg`,
+  `${baseUrl}photos/DSC09993.jpg`,
+  `${baseUrl}photos/DSC09995.jpg`,
+  `${baseUrl}photos/DSC09997.jpg`,
+  `${baseUrl}photos/DSC09999.jpg`,
+];
 
 function App() {
   return (
@@ -51,7 +54,7 @@ function App() {
         <Footer />
       </div>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

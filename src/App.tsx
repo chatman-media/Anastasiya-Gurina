@@ -7,37 +7,39 @@ import { Footer } from "./components/footer";
 import { ThemeProvider } from "./components/theme-provider";
 
 // Фотографии из папки public/photos
-// В dev режиме используем /photos/, в production - с base path
-const baseUrl = import.meta.env.BASE_URL;
+// Правильно формируем путь с BASE_URL
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
 
 const portfolioPhotos = [
-  `${baseUrl}photos/DSC09940.jpg`,
-  `${baseUrl}photos/DSC09941.jpg`,
-  `${baseUrl}photos/DSC09945.jpg`,
-  `${baseUrl}photos/DSC09947.jpg`,
-  `${baseUrl}photos/DSC09951.jpg`,
-  `${baseUrl}photos/DSC09952.jpg`,
-  `${baseUrl}photos/DSC09957.jpg`,
-  `${baseUrl}photos/DSC09959.jpg`,
-  `${baseUrl}photos/DSC09961.jpg`,
-  `${baseUrl}photos/DSC09963.jpg`,
-  `${baseUrl}photos/DSC09964.jpg`,
-  `${baseUrl}photos/DSC09967.JPG`,
-  `${baseUrl}photos/DSC09969.jpg`,
-  `${baseUrl}photos/DSC09972.jpg`,
-  `${baseUrl}photos/DSC09974.jpg`,
-  `${baseUrl}photos/DSC09977.jpg`,
-  `${baseUrl}photos/DSC09978.jpg`,
-  `${baseUrl}photos/DSC09982.jpg`,
-  `${baseUrl}photos/DSC09984.jpg`,
-  `${baseUrl}photos/DSC09985.jpg`,
-  `${baseUrl}photos/DSC09988.jpg`,
-  `${baseUrl}photos/DSC09989.jpg`,
-  `${baseUrl}photos/DSC09991.jpg`,
-  `${baseUrl}photos/DSC09993.jpg`,
-  `${baseUrl}photos/DSC09995.jpg`,
-  `${baseUrl}photos/DSC09997.jpg`,
-  `${baseUrl}photos/DSC09999.jpg`,
+  `${base}photos/DSC09940.jpg`,
+  `${base}photos/DSC09941.jpg`,
+  `${base}photos/DSC09945.jpg`,
+  `${base}photos/DSC09947.jpg`,
+  `${base}photos/DSC09951.jpg`,
+  `${base}photos/DSC09952.jpg`,
+  `${base}photos/DSC09957.jpg`,
+  `${base}photos/DSC09959.jpg`,
+  `${base}photos/DSC09961.jpg`,
+  `${base}photos/DSC09963.jpg`,
+  `${base}photos/DSC09964.jpg`,
+  `${base}photos/DSC09967.JPG`,
+  `${base}photos/DSC09969.jpg`,
+  `${base}photos/DSC09972.jpg`,
+  `${base}photos/DSC09974.jpg`,
+  `${base}photos/DSC09977.jpg`,
+  `${base}photos/DSC09978.jpg`,
+  `${base}photos/DSC09982.jpg`,
+  `${base}photos/DSC09984.jpg`,
+  `${base}photos/DSC09985.jpg`,
+  `${base}photos/DSC09988.jpg`,
+  `${base}photos/DSC09989.jpg`,
+  `${base}photos/DSC09991.jpg`,
+  `${base}photos/DSC09993.jpg`,
+  `${base}photos/DSC09995.jpg`,
+  `${base}photos/DSC09997.jpg`,
+  `${base}photos/DSC09999.jpg`,
 ];
 
 function App() {

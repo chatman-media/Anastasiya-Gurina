@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTranslation } from "react-i18next";
@@ -14,23 +14,6 @@ interface PhotoGalleryProps {
 export function PhotoGallery({ photos }: PhotoGalleryProps) {
   const { t } = useTranslation();
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
-  const [loadedPhotos, setLoadedPhotos] = useState<Set<string>>(new Set());
-  const [failedPhotos, setFailedPhotos] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    console.log("Photo Gallery - Total photos:", photos.length);
-    console.log("Photo Gallery - Photo URLs:", photos);
-  }, [photos]);
-
-  const handleImageLoad = (src: string) => {
-    console.log("✅ Image loaded successfully:", src);
-    setLoadedPhotos((prev) => new Set(prev).add(src));
-  };
-
-  const handleImageError = (src: string) => {
-    console.error("❌ Failed to load image:", src);
-    setFailedPhotos((prev) => new Set(prev).add(src));
-  };
 
   // Convert photos to react-photo-album format
   const albumPhotos = photos.map((src, index) => ({
@@ -49,14 +32,6 @@ export function PhotoGallery({ photos }: PhotoGalleryProps) {
             {t("gallery")}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto"></div>
-
-          {/* Debug info - remove in production */}
-          <div className="mt-4 text-sm text-muted-foreground">
-            <p>
-              Total: {photos.length} | Loaded: {loadedPhotos.size} | Failed:{" "}
-              {failedPhotos.size}
-            </p>
-          </div>
         </div>
 
         <PhotoAlbum
@@ -64,22 +39,6 @@ export function PhotoGallery({ photos }: PhotoGalleryProps) {
           layout="rows"
           targetRowHeight={200}
           onClick={({ index }) => setSelectedPhoto(photos[index])}
-          renderPhoto={({ photo, wrapperStyle, renderDefaultPhoto }) => (
-            <div style={wrapperStyle}>
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-                onLoad={() => handleImageLoad(photo.src)}
-                onError={() => handleImageError(photo.src)}
-                loading="lazy"
-              />
-            </div>
-          )}
         />
 
         {selectedPhoto && (
@@ -100,7 +59,6 @@ export function PhotoGallery({ photos }: PhotoGalleryProps) {
                 className="max-w-full max-h-full object-contain rounded-lg"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  console.error("Failed to load modal image:", selectedPhoto);
                   target.src =
                     "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xNzUgMTUwSDIyNVYyMDBIMTc1VjE1MFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+";
                 }}

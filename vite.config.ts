@@ -1,10 +1,10 @@
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/Anastasiya-Gurina-Portfolio/",
+  base: "/Anastasiya-Gurina/",
   plugins: [react(), tailwindcss()],
 
   resolve: {

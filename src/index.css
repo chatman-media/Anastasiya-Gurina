@@ -49,6 +49,11 @@
 a {
     font-weight: 500;
     text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header a {
+    text-decoration: none !important;
 }
 
 body {
@@ -96,19 +101,21 @@ header nav a {
     font-size: 0.875rem;
     letter-spacing: -0.01em;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
 }
 
 header nav a:hover {
-    transform: translateY(-1px);
+    text-decoration: none;
 }
 
 /* Better contrast for header nav in dark mode */
 .theme-dark header nav a {
-    color: #d4d4d4;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .theme-dark header nav a:hover {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Light theme - clean and minimal */
@@ -144,6 +151,16 @@ header nav a:hover {
     --sidebar-accent-foreground: #1a1a1a;
     --sidebar-border: #e5e5e5;
     --sidebar-ring: #9ca3af;
+}
+
+/* Better contrast for header nav in light mode */
+.theme-light header nav a {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.theme-light header nav a:hover {
+    color: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 /* Clean base styles */
@@ -556,17 +573,25 @@ p {
     border: 1px solid #333333;
 }
 
-/* Link improvements */
-.theme-dark a {
+/* Link improvements - only for content links, not navigation */
+.theme-dark main a,
+.theme-dark footer a {
     color: #60a5fa;
     transition: color 0.2s;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
 }
 
-.theme-dark a:hover {
+.theme-dark main a:hover,
+.theme-dark footer a:hover {
     color: #93c5fd;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 2px;
+    text-decoration-color: currentColor;
+}
+
+/* Navigation links - no underline */
+.theme-dark header a {
+    text-decoration: none;
 }
 
 /* Simple photo gallery styling for dark theme */

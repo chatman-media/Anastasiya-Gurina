@@ -19,13 +19,11 @@ export function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Показываем header если скроллим вверх или находимся в самом верху
       if (currentScrollY < lastScrollY || currentScrollY < 10) {
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Скрываем header если скроллим вниз и прошли больше 100px
         setIsVisible(false);
-        setMobileMenuOpen(false); // Закрываем мобильное меню при скролле
+        setMobileMenuOpen(false);
       }
 
       setLastScrollY(currentScrollY);
@@ -43,7 +41,7 @@ export function Header() {
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false); // Закрываем меню после клика
+      setMobileMenuOpen(false);
     }
   };
 
@@ -77,25 +75,25 @@ export function Header() {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1 text-sm font-medium">
+          <nav className="hidden md:flex items-center gap-0.5">
             <a
               href="#about"
               onClick={(e) => handleNavClick(e, "about")}
-              className="rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
+              className="relative px-3 py-1.5 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200 rounded-md hover:bg-accent/50"
             >
               {t("about")}
             </a>
             <a
               href="#gallery"
               onClick={(e) => handleNavClick(e, "gallery")}
-              className="rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
+              className="relative px-3 py-1.5 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200 rounded-md hover:bg-accent/50"
             >
               {t("gallery")}
             </a>
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "contact")}
-              className="rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
+              className="relative px-3 py-1.5 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200 rounded-md hover:bg-accent/50"
             >
               {t("contact")}
             </a>
@@ -129,33 +127,35 @@ export function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-border/40 py-3 px-4 space-y-2">
+          <div className="md:hidden border-t border-border/40 py-3 px-4 space-y-1">
             <a
               href="#about"
               onClick={(e) => handleNavClick(e, "about")}
-              className="block rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+              className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200"
             >
               {t("about")}
             </a>
             <a
               href="#gallery"
               onClick={(e) => handleNavClick(e, "gallery")}
-              className="block rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+              className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200"
             >
               {t("gallery")}
             </a>
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "contact")}
-              className="block rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+              className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200"
             >
               {t("contact")}
             </a>
 
             {/* Mobile controls */}
-            <div className="flex items-center gap-2 pt-2 border-t border-border/40">
+            <div className="flex items-center gap-2 pt-3 mt-2 border-t border-border/40">
               <LanguageSwitcher />
+              <div className="w-px h-4 bg-border/50" />
               <LayoutSwitcher />
+              <div className="w-px h-4 bg-border/50" />
               <ThemeSwitcher />
             </div>
           </div>

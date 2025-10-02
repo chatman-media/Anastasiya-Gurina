@@ -47,7 +47,7 @@ export function Header() {
           ? "translate-y-0 opacity-100"
           : "-translate-y-20 opacity-0 pointer-events-none"
       }`}
-      style={{ width: "calc(100% - 2rem)", maxWidth: "800px" }}
+      style={{ width: "calc(100% - 2rem)", maxWidth: "720px" }}
     >
       <div
         className="relative rounded-2xl border border-border/40 bg-background/70 backdrop-blur-xl shadow-lg shadow-black/5"
@@ -56,8 +56,8 @@ export function Header() {
           WebkitBackdropFilter: "blur(20px) saturate(180%)",
         }}
       >
-        <div className="flex h-14 items-center justify-between px-6">
-          {/* Logo только */}
+        <div className="flex h-12 items-center justify-between px-4">
+          {/* Logo */}
           <div className="flex items-center">
             <div className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500/90 to-fuchsia-500/90 text-white shadow-md">
               <span className="text-xs font-bold">AG</span>
@@ -69,29 +69,30 @@ export function Header() {
             <a
               href="#about"
               onClick={(e) => handleNavClick(e, "about")}
-              className="rounded-lg px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
+              className="rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
             >
               {t("about")}
             </a>
             <a
               href="#gallery"
               onClick={(e) => handleNavClick(e, "gallery")}
-              className="rounded-lg px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
+              className="rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
             >
               {t("gallery")}
             </a>
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "contact")}
-              className="rounded-lg px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
+              className="rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/50"
             >
               {t("contact")}
             </a>
           </nav>
 
-          {/* Controls */}
-          <div className="flex items-center gap-1.5 rounded-lg bg-muted/30 px-1.5 py-1 backdrop-blur">
+          {/* Controls - более компактные */}
+          <div className="flex items-center gap-1">
             <LanguageSwitcher />
+            <div className="w-px h-4 bg-border/50 mx-1" />
             <ThemeSwitcher />
           </div>
         </div>

@@ -16,7 +16,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container flex h-16 items-center justify-between">
         {/* Brand */}
         <div className="flex items-center gap-3">
@@ -33,26 +33,23 @@ export function Header() {
           <a
             href="#about"
             onClick={(e) => handleNavClick(e, 'about')}
-            className="group relative rounded-lg px-3 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/40"
+            className="rounded-lg px-3 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/40"
           >
             {t('about')}
-            <span className="pointer-events-none absolute left-3 right-3 -bottom-[2px] h-[2px] scale-x-0 bg-primary/70 transition-transform duration-200 group-hover:scale-x-100" />
           </a>
           <a
             href="#gallery"
             onClick={(e) => handleNavClick(e, 'gallery')}
-            className="group relative rounded-lg px-3 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/40"
+            className="rounded-lg px-3 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/40"
           >
             {t('gallery')}
-            <span className="pointer-events-none absolute left-3 right-3 -bottom-[2px] h-[2px] scale-x-0 bg-primary/70 transition-transform duration-200 group-hover:scale-x-100" />
           </a>
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, 'contact')}
-            className="group relative rounded-lg px-3 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/40"
+            className="rounded-lg px-3 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200 hover:bg-muted/40"
           >
             {t('contact')}
-            <span className="pointer-events-none absolute left-3 right-3 -bottom-[2px] h-[2px] scale-x-0 bg-primary/70 transition-transform duration-200 group-hover:scale-x-100" />
           </a>
         </nav>
 

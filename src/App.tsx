@@ -25,7 +25,7 @@ const portfolioPhotos = [
   `${base}photos/DSC09961.jpg`,
   `${base}photos/DSC09963.jpg`,
   `${base}photos/DSC09964.jpg`,
-  `${base}photos/DSC09967.JPG`,
+  `${base}photos/DSC09967.jpg`,
   `${base}photos/DSC09969.jpg`,
   `${base}photos/DSC09972.jpg`,
   `${base}photos/DSC09974.jpg`,

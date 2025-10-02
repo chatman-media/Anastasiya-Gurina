@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import { ThemeSwitcher } from "./theme-switcher";
 import { LanguageSwitcher } from "./language-switcher";
-import { LayoutSwitcher } from "./layout-switcher";
+import { LayoutSwitcher, useLayout } from "./layout-switcher";
 import { useTranslation } from "react-i18next";
 
 export function Header() {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { isFullWidth } = useLayout();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +49,11 @@ export function Header() {
           ? "translate-y-0 opacity-100"
           : "-translate-y-20 opacity-0 pointer-events-none"
       }`}
-      style={{ width: "calc(100% - 2rem)", maxWidth: "720px" }}
+      style={{
+        width: "calc(100% - 2rem)",
+        maxWidth: isFullWidth ? "1400px" : "720px",
+        transition: "max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
     >
       <div
         className="relative rounded-2xl border border-border/40 bg-background/70 backdrop-blur-xl shadow-lg shadow-black/5"

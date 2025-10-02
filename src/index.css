@@ -101,7 +101,15 @@ header nav a {
 header nav a:hover {
     transform: translateY(-1px);
 }
-</text>
+
+/* Better contrast for header nav in dark mode */
+.theme-dark header nav a {
+    color: #d4d4d4;
+}
+
+.theme-dark header nav a:hover {
+    color: #ffffff;
+}
 
 /* Light theme - clean and minimal */
 .theme-light {
@@ -381,55 +389,59 @@ p {
 
 /* Enhanced dark theme with better contrast and modern colors */
 .theme-dark {
-    --background: #0d1117; /* GitHub-like dark background */
-    --foreground: #c9d1d9; /* GitHub-like text color */
-    --card: #161b22; /* Slightly lighter than background */
-    --card-foreground: #c9d1d9;
-    --popover: #161b22;
-    --popover-foreground: #c9d1d9;
-    --primary: #58a6ff; /* GitHub blue */
+    --background: #0a0a0a; /* Darker background for better contrast */
+    --foreground: #ededed; /* Brighter text color */
+    --card: #161616; /* Slightly lighter than background */
+    --card-foreground: #ededed;
+    --popover: #161616;
+    --popover-foreground: #ededed;
+    --primary: #60a5fa; /* Brighter blue */
     --primary-foreground: #ffffff;
-    --secondary: #21262d; /* Subtle secondary background */
-    --secondary-foreground: #c9d1d9;
-    --muted: #21262d;
-    --muted-foreground: #8b949e; /* Lighter muted text */
-    --accent: #21262d;
-    --accent-foreground: #c9d1d9;
-    --destructive: #f85149; /* GitHub red */
-    --border: #30363d; /* Subtle borders */
-    --input: #21262d;
-    --ring: #58a6ff; /* Focus ring matches primary */
-    --chart-1: #58a6ff;
-    --chart-2: #7c3aed;
-    --chart-3: #f59e0b;
-    --chart-4: #f85149;
-    --chart-5: #10b981;
-    --sidebar: #161b22;
-    --sidebar-foreground: #c9d1d9;
-    --sidebar-primary: #58a6ff;
+    --secondary: #1f1f1f; /* Subtle secondary background */
+    --secondary-foreground: #ededed;
+    --muted: #1f1f1f;
+    --muted-foreground: #a1a1a1; /* Better contrast muted text */
+    --accent: #1f1f1f;
+    --accent-foreground: #ededed;
+    --destructive: #f87171; /* Brighter red */
+    --border: #2a2a2a; /* Subtle borders */
+    --input: #1f1f1f;
+    --ring: #60a5fa; /* Focus ring matches primary */
+    --chart-1: #60a5fa;
+    --chart-2: #8b5cf6;
+    --chart-3: #fbbf24;
+    --chart-4: #f87171;
+    --chart-5: #34d399;
+    --sidebar: #161616;
+    --sidebar-foreground: #ededed;
+    --sidebar-primary: #60a5fa;
     --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #21262d;
-    --sidebar-accent-foreground: #c9d1d9;
-    --sidebar-border: #30363d;
-    --sidebar-ring: #58a6ff;
+    --sidebar-accent: #1f1f1f;
+    --sidebar-accent-foreground: #ededed;
+    --sidebar-border: #2a2a2a;
+    --sidebar-ring: #60a5fa;
 }
 
 /* Additional dark theme improvements */
 .theme-dark body {
-    @apply bg-gradient-to-br from-gray-900 via-gray-900 to-black;
+    background: #0a0a0a;
 }
 
 .theme-dark .bg-background {
-    @apply bg-gradient-to-br from-gray-900 via-gray-900 to-black;
+    background: #0a0a0a;
 }
 
 /* Better text contrast in dark mode */
 .theme-dark .text-muted-foreground {
-    @apply text-gray-400;
+    color: #a1a1a1;
+}
+
+.theme-dark .text-foreground {
+    color: #ededed;
 }
 
 .theme-dark .text-secondary {
-    @apply text-gray-300;
+    color: #d4d4d4;
 }
 
 /* Improved buttons in dark mode */
@@ -510,11 +522,18 @@ p {
 .theme-dark h1,
 .theme-dark h2,
 .theme-dark h3 {
-    @apply text-gray-100;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.theme-dark p,
+.theme-dark span {
+    color: #ededed;
 }
 
 .theme-dark .text-muted-foreground {
-    @apply text-gray-400 leading-relaxed;
+    color: #a1a1a1;
+    line-height: 1.6;
 }
 
 /* Card and container improvements */
@@ -525,11 +544,15 @@ p {
 
 /* Link improvements */
 .theme-dark a {
-    @apply text-blue-400 hover:text-blue-300 transition-colors duration-200;
+    color: #60a5fa;
+    transition: color 0.2s;
 }
 
 .theme-dark a:hover {
-    @apply underline decoration-2 underline-offset-2;
+    color: #93c5fd;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
 }
 
 /* Photo gallery improvements for dark theme */

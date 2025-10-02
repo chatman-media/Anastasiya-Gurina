@@ -1,14 +1,11 @@
-import path from "path"
-import tailwindcss from "@tailwindcss/vite"
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import path from "path";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: process.env.BASE_URL || '/',
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  base: "/Anastasiya-Gurina-Portfolio/",
+  plugins: [react(), tailwindcss()],
 
   resolve: {
     alias: {
@@ -16,9 +13,9 @@ export default defineConfig({
     },
   },
 
-  root: '.',
+  root: ".",
   build: {
-    outDir: 'dist',
+    outDir: "dist",
   },
-  publicDir: 'public',
-})
+  publicDir: "public",
+});

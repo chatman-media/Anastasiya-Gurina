@@ -182,33 +182,34 @@ p {
 /* Mobile optimizations */
 @media (max-width: 640px) {
     .container {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
     }
 
     /* Hero section mobile fixes */
     section {
-        padding-top: 3rem;
+        padding-top: 4rem;
         padding-bottom: 3rem;
     }
 
     /* Gallery mobile fixes */
     .react-photo-album {
-        margin: 0 -0.5rem;
+        margin: 0;
+        gap: 0.5rem;
     }
 
     .react-photo-album img {
-        border-radius: 0;
+        border-radius: 0.5rem;
     }
 
     /* Text sizing for mobile */
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         line-height: 1.2;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .text-xl {
@@ -221,8 +222,8 @@ p {
 
     /* Button sizing */
     button {
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+        font-size: 0.9375rem;
     }
 
     /* Grid adjustments */
@@ -237,17 +238,29 @@ p {
     /* Hero specific fixes */
     .min-h-screen {
         min-height: 100vh;
+        padding-top: 5rem;
     }
 
     /* Gallery modal fixes */
     .fixed.inset-0 {
-        padding: 0.5rem;
+        padding: 1rem;
     }
 
     /* About section image */
     .aspect-square {
         margin: 0 auto;
-        max-width: 200px;
+        max-width: 240px;
+    }
+
+    /* Mobile header adjustments */
+    header nav {
+        display: none;
+    }
+
+    /* Mobile spacing */
+    section:not(.min-h-screen) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 }
 
@@ -387,48 +400,48 @@ p {
     @apply shadow-lg shadow-black/30;
 }
 
-/* Enhanced dark theme with better contrast and modern colors */
+/* Simple dark theme with flat colors */
 .theme-dark {
-    --background: #0a0a0a; /* Darker background for better contrast */
-    --foreground: #ededed; /* Brighter text color */
-    --card: #161616; /* Slightly lighter than background */
+    --background: #0f0f0f;
+    --foreground: #ededed;
+    --card: #1a1a1a;
     --card-foreground: #ededed;
-    --popover: #161616;
+    --popover: #1a1a1a;
     --popover-foreground: #ededed;
-    --primary: #60a5fa; /* Brighter blue */
+    --primary: #60a5fa;
     --primary-foreground: #ffffff;
-    --secondary: #1f1f1f; /* Subtle secondary background */
+    --secondary: #262626;
     --secondary-foreground: #ededed;
-    --muted: #1f1f1f;
-    --muted-foreground: #a1a1a1; /* Better contrast muted text */
-    --accent: #1f1f1f;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --accent: #262626;
     --accent-foreground: #ededed;
-    --destructive: #f87171; /* Brighter red */
-    --border: #2a2a2a; /* Subtle borders */
-    --input: #1f1f1f;
-    --ring: #60a5fa; /* Focus ring matches primary */
+    --destructive: #ef4444;
+    --border: #333333;
+    --input: #262626;
+    --ring: #60a5fa;
     --chart-1: #60a5fa;
     --chart-2: #8b5cf6;
     --chart-3: #fbbf24;
-    --chart-4: #f87171;
-    --chart-5: #34d399;
-    --sidebar: #161616;
+    --chart-4: #ef4444;
+    --chart-5: #10b981;
+    --sidebar: #1a1a1a;
     --sidebar-foreground: #ededed;
     --sidebar-primary: #60a5fa;
     --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #1f1f1f;
+    --sidebar-accent: #262626;
     --sidebar-accent-foreground: #ededed;
-    --sidebar-border: #2a2a2a;
+    --sidebar-border: #333333;
     --sidebar-ring: #60a5fa;
 }
 
-/* Additional dark theme improvements */
+/* Simple flat background for dark theme */
 .theme-dark body {
-    background: #0a0a0a;
+    background: #0f0f0f;
 }
 
 .theme-dark .bg-background {
-    background: #0a0a0a;
+    background: #0f0f0f;
 }
 
 /* Better text contrast in dark mode */
@@ -492,30 +505,31 @@ p {
     @apply border-b-gray-700;
 }
 
-/* Hero section dark theme enhancements */
-.theme-dark .hero-gradient {
-    background: linear-gradient(
-        135deg,
-        rgba(13, 17, 23, 0.9) 0%,
-        rgba(22, 27, 34, 0.8) 50%,
-        rgba(13, 17, 23, 0.9) 100%
-    );
-}
-
+/* Simple sections without gradients */
 .theme-dark section {
-    @apply border-b border-gray-800;
+    border-bottom: 1px solid #262626;
 }
 
-/* Button enhancements for dark theme */
+/* Simple button styles for dark theme */
 .theme-dark .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800
-         shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40
-         transition-all duration-300 transform hover:scale-105;
+    background: #3b82f6;
+    transition: all 0.2s;
+}
+
+.theme-dark .btn-primary:hover {
+    background: #2563eb;
 }
 
 .theme-dark .btn-outline {
-    @apply border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white
-         hover:border-gray-500 transition-all duration-300;
+    border-color: #525252;
+    color: #d4d4d4;
+    transition: all 0.2s;
+}
+
+.theme-dark .btn-outline:hover {
+    background: #262626;
+    border-color: #737373;
+    color: #ffffff;
 }
 
 /* Typography improvements for dark theme */
@@ -536,10 +550,10 @@ p {
     line-height: 1.6;
 }
 
-/* Card and container improvements */
+/* Simple card styling */
 .theme-dark .bg-card {
-    @apply bg-gradient-to-br from-gray-900 to-gray-800
-         shadow-xl shadow-black/20 border border-gray-700/50;
+    background: #1a1a1a;
+    border: 1px solid #333333;
 }
 
 /* Link improvements */
@@ -555,59 +569,93 @@ p {
     text-underline-offset: 2px;
 }
 
-/* Photo gallery improvements for dark theme */
+/* Simple photo gallery styling for dark theme */
 .theme-dark .photo-gallery-container {
-    @apply bg-gray-900/50 backdrop-blur-sm;
+    background: #0f0f0f;
 }
 
 .theme-dark .react-photo-album img {
-    @apply shadow-2xl shadow-black/40 hover:shadow-black/60
-         transition-all duration-500 ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.theme-dark .react-photo-album img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .theme-dark .photo-modal {
-    @apply bg-black/90 backdrop-blur-md;
+    background: rgba(0, 0, 0, 0.95);
 }
 
-/* Contact form improvements */
+/* Simple form styling */
 .theme-dark .form-input {
-    @apply bg-gray-800 border-gray-600 text-gray-200
-         focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-         placeholder-gray-500;
+    background: #262626;
+    border: 1px solid #404040;
+    color: #ededed;
+}
+
+.theme-dark .form-input::placeholder {
+    color: #737373;
+}
+
+.theme-dark .form-input:focus {
+    border-color: #60a5fa;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
 }
 
 .theme-dark .form-textarea {
-    @apply bg-gray-800 border-gray-600 text-gray-200
-         focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-         placeholder-gray-500 resize-none;
+    background: #262626;
+    border: 1px solid #404040;
+    color: #ededed;
+    resize: none;
 }
 
-/* Footer improvements */
+.theme-dark .form-textarea::placeholder {
+    color: #737373;
+}
+
+.theme-dark .form-textarea:focus {
+    border-color: #60a5fa;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+/* Simple footer styling */
 .theme-dark footer {
-    @apply bg-gradient-to-r from-gray-900 to-gray-800
-         border-t border-gray-700/50;
+    background: #1a1a1a;
+    border-top: 1px solid #333333;
 }
 
-/* Scrollbar improvements for dark theme */
+/* Simple scrollbar for dark theme */
 .theme-dark ::-webkit-scrollbar {
-    @apply w-2 bg-gray-900;
+    width: 8px;
+    background: #0f0f0f;
 }
 
 .theme-dark ::-webkit-scrollbar-track {
-    @apply bg-gray-900;
+    background: #0f0f0f;
 }
 
 .theme-dark ::-webkit-scrollbar-thumb {
-    @apply bg-gray-700 rounded-full hover:bg-gray-600;
+    background: #404040;
+    border-radius: 4px;
 }
 
-/* Loading states and animations */
+.theme-dark ::-webkit-scrollbar-thumb:hover {
+    background: #525252;
+}
+
+/* Simple loading states */
 .theme-dark .animate-pulse {
-    @apply bg-gray-800;
+    background: #262626;
 }
 
 .theme-dark .skeleton {
-    @apply bg-gradient-to-r from-gray-800 to-gray-700;
+    background: #262626;
 }
 
 /* Glass morphism utilities */

@@ -1,15 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { ThemeSwitcher } from "./theme-switcher";
 import { LanguageSwitcher } from "./language-switcher";
 import { LayoutSwitcher, useLayout } from "./layout-switcher";
 import { useTranslation } from "react-i18next";
+import { Button } from "./ui/button";
 
 export function Header() {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isFullWidth } = useLayout();
 
   useEffect(() => {
@@ -22,6 +25,7 @@ export function Header() {
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         // Скрываем header если скроллим вниз и прошли больше 100px
         setIsVisible(false);
+        setMobileMenuOpen(false); // Закрываем мобильное меню при скролле
       }
 
       setLastScrollY(currentScrollY);
@@ -39,6 +43,7 @@ export function Header() {
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false); // Закрываем меню после клика
     }
   };
 
@@ -71,7 +76,7 @@ export function Header() {
             </div>
           </div>
 
-          {/* Nav */}
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1 text-sm font-medium">
             <a
               href="#about"
@@ -96,15 +101,65 @@ export function Header() {
             </a>
           </nav>
 
-          {/* Controls - более компактные */}
+          {/* Controls */}
           <div className="flex items-center gap-1">
-            <LanguageSwitcher />
-            <div className="w-px h-4 bg-border/50 mx-1" />
-            <LayoutSwitcher />
-            <div className="w-px h-4 bg-border/50 mx-1" />
-            <ThemeSwitcher />
+            <div className="hidden md:flex items-center gap-1">
+              <LanguageSwitcher />
+              <div className="w-px h-4 bg-border/50 mx-1" />
+              <LayoutSwitcher />
+              <div className="w-px h-4 bg-border/50 mx-1" />
+              <ThemeSwitcher />
+            </div>
+
+            {/* Mobile menu button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden h-8 w-8"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
+            </Button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-border/40 py-3 px-4 space-y-2">
+            <a
+              href="#about"
+              onClick={(e) => handleNavClick(e, "about")}
+              className="block rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+            >
+              {t("about")}
+            </a>
+            <a
+              href="#gallery"
+              onClick={(e) => handleNavClick(e, "gallery")}
+              className="block rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+            >
+              {t("gallery")}
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
+              className="block rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+            >
+              {t("contact")}
+            </a>
+
+            {/* Mobile controls */}
+            <div className="flex items-center gap-2 pt-2 border-t border-border/40">
+              <LanguageSwitcher />
+              <LayoutSwitcher />
+              <ThemeSwitcher />
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

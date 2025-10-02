@@ -5,6 +5,7 @@ import { PhotoGallery } from "./components/photo-gallery";
 import { Contact } from "./components/contact";
 import { Footer } from "./components/footer";
 import { ThemeProvider } from "./components/theme-provider";
+import { LayoutProvider } from "./components/layout-switcher";
 
 // Фотографии из папки public/photos
 // Правильно формируем путь с BASE_URL
@@ -45,16 +46,18 @@ const portfolioPhotos = [
 function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main>
-          <Hero />
-          <About />
-          <PhotoGallery photos={portfolioPhotos} />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+      <LayoutProvider>
+        <div className="min-h-screen bg-background">
+          <Header />
+          <main>
+            <Hero />
+            <About />
+            <PhotoGallery photos={portfolioPhotos} />
+            <Contact />
+          </main>
+          <Footer />
+        </div>
+      </LayoutProvider>
     </ThemeProvider>
   );
 }

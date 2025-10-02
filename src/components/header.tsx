@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ThemeSwitcher } from "./theme-switcher";
 import { LanguageSwitcher } from "./language-switcher";
+import { LayoutSwitcher } from "./layout-switcher";
 import { useTranslation } from "react-i18next";
 
 export function Header() {
@@ -92,6 +93,8 @@ export function Header() {
           {/* Controls - более компактные */}
           <div className="flex items-center gap-1">
             <LanguageSwitcher />
+            <div className="w-px h-4 bg-border/50 mx-1" />
+            <LayoutSwitcher />
             <div className="w-px h-4 bg-border/50 mx-1" />
             <ThemeSwitcher />
           </div>

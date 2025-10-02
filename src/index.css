@@ -600,6 +600,17 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Layout width control */
+body:not(.layout-full-width) .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.layout-full-width .container {
+    max-width: 100%;
+}
+
 /* Smooth transitions */
 * {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

@@ -50,9 +50,10 @@ export function Header() {
           : "-translate-y-20 opacity-0 pointer-events-none"
       }`}
       style={{
-        width: "calc(100% - 2rem)",
-        maxWidth: isFullWidth ? "1400px" : "720px",
-        transition: "max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        width: isFullWidth ? "calc(100% - 1rem)" : "calc(100% - 2rem)",
+        maxWidth: isFullWidth ? "none" : "720px",
+        transition:
+          "max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       <div

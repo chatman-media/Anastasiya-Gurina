@@ -609,6 +609,14 @@ body:not(.layout-full-width) .container {
 
 body.layout-full-width .container {
     max-width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+/* Full width sections */
+body.layout-full-width section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 /* Smooth transitions */

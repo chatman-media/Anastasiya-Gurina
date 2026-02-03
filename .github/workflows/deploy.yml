@@ -39,6 +39,9 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: List build directory
+        run: ls -R apps/portfolio/dist
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4

@@ -17,10 +17,4 @@ export default defineConfig({
       "@workspace/ui": path.resolve(__dirname, "../../packages/ui/src"),
     },
   },
-
-  root: ".",
-  build: {
-    outDir: "dist",
-  },
-  publicDir: "public",
 });

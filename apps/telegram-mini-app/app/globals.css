@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --radius: 0.5rem;
+
+  /* Use Telegram theme colors */
+  --background: var(--tg-theme-bg-color, #ffffff);
+  --foreground: var(--tg-theme-text-color, #000000);
+  --primary: var(--tg-theme-button-color, #3390ec);
+  --primary-foreground: var(--tg-theme-button-text-color, #ffffff);
+  --secondary: var(--tg-theme-secondary-bg-color, #f4f4f5);
+  --muted: var(--tg-theme-hint-color, #999999);
+  --muted-foreground: #71717a;
+  --accent: var(--tg-theme-link-color, #3390ec);
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --border: #e4e4e7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  /* Prevent pull-to-refresh */
+  touch-action: pan-y;
+}
+
+/* Hide scrollbars but keep functionality */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Prevent text selection on buttons and interactive elements */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Ensure full height on mobile */
+html,
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

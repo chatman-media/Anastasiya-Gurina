@@ -1,0 +1,66 @@
+// Prisma schema for Anastasiya Gurina NFT Gallery
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Nft {
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String
+  imageUrl      String
+  price         String    // TON amount as string
+  available     Boolean   @default(true)
+  owner         String?   // TON wallet address
+  category      String?   // e.g., "Urban", "Portrait", "Architecture"
+  location      String?   // Where photo was taken
+  year          Int?      // Year taken
+  edition       String    @default("1/1")
+
+  // NFT blockchain data
+  nftIndex      Int?      @unique // Index in TON collection
+  contractAddr  String?   // TON contract address
+  mintedAt      DateTime?
+  transactionHash String?
+
+  // Timestamps
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  purchases     Purchase[]
+}
+
+model Purchase {
+  id              Int       @id @default(autoincrement())
+  nftId           Int
+  buyerAddress    String    // TON wallet address
+  price           String    // Price paid in TON
+  transactionHash String    @unique
+  status          String    @default("pending") // pending, confirmed, failed
+
+  // Timestamps
+  createdAt       DateTime  @default(now())
+  confirmedAt     DateTime?
+
+  // Relations
+  nft             Nft       @relation(fields: [nftId], references: [id])
+}
+
+model Collection {
+  id              Int       @id @default(autoincrement())
+  name            String
+  description     String?
+  contractAddress String    @unique
+  ownerAddress    String
+  royaltyPercent  Int       @default(1000) // basis points (10%)
+  totalSupply     Int       @default(0)
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}

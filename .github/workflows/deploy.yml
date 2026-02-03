@@ -1,10 +1,13 @@
-name: Deploy to GitHub Pages
+name: Deploy Portfolio to GitHub Pages
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+    paths:
+      - 'apps/portfolio/**'
+      - 'packages/ui/**'
+      - 'packages/typescript-config/**'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 permissions:
@@ -26,13 +29,13 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: "latest"
+          bun-version: "1.3.0"
 
       - name: Install dependencies
         run: bun install
 
-      - name: Build
-        run: bun run build
+      - name: Build Portfolio with Turborepo
+        run: bun run build:portfolio
         env:
           NODE_ENV: production
 
@@ -42,7 +45,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"
+          path: "./apps/portfolio/dist"
 
   deploy:
     environment:

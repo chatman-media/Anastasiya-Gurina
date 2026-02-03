@@ -1,0 +1,27 @@
+{
+  "name": "@workspace/contracts",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./wrappers/*": "./wrappers/*.ts"
+  },
+  "scripts": {
+    "build": "blueprint build NftCollection",
+    "test": "blueprint test",
+    "deploy": "blueprint run",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf build .turbo"
+  },
+  "dependencies": {
+    "@ton/core": "^0.59.0",
+    "@ton/crypto": "^3.3.0",
+    "@ton/ton": "^15.1.0"
+  },
+  "devDependencies": {
+    "@workspace/typescript-config": "workspace:*",
+    "@ton/blueprint": "^0.24.0",
+    "@ton/sandbox": "^0.22.0",
+    "@ton/test-utils": "^0.4.2",
+    "typescript": "^5.9.3"
+  }
+}

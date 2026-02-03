@@ -1,0 +1,6 @@
+{
+  "name": "@workspace/typescript-config",
+  "version": "1.0.0",
+  "files": ["base.json", "nextjs.json", "react.json"],
+  "main": "base.json"
+}

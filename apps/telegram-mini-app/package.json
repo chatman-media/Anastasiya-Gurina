@@ -1,0 +1,39 @@
+{
+  "name": "telegram-mini-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3004",
+    "dev:https": "next dev -p 3004 --experimental-https",
+    "build": "next build",
+    "start": "next start -p 3004",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next .turbo",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:chromium": "playwright test --project=chromium",
+    "test:mobile": "playwright test --project='Mobile Chrome'"
+  },
+  "dependencies": {
+    "@telegram-apps/sdk": "^2.0.0",
+    "@telegram-apps/sdk-react": "^2.0.0",
+    "@tonconnect/ui-react": "^2.0.9",
+    "@workspace/ui": "workspace:*",
+    "next": "^15.3.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.6.1",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@workspace/typescript-config": "workspace:*",
+    "playwright": "^1.56.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.3"
+  }
+}

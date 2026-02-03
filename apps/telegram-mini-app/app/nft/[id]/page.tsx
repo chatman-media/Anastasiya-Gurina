@@ -43,9 +43,9 @@ export default function NFTDetailPage({ params }: { params: Promise<{ id: string
     }
 
     // TODO: Implement purchase flow with backend API
-    webApp?.showConfirm(
+    (webApp as any)?.showConfirm(
       `Purchase "${nft.title}" for ${nft.price} TON?`,
-      (confirmed) => {
+      (confirmed: boolean) => {
         if (confirmed) {
           webApp?.showAlert('Coming soon! Payment integration will be available soon.');
         }

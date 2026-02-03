@@ -82,7 +82,7 @@ export default function HomePage() {
         {/* Gallery */}
         <div className="mb-6">
           <h2 className="text-xl font-bold mb-4">Gallery</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
             {nfts.map((nft) => (
               <NFTCard
                 key={nft.id}

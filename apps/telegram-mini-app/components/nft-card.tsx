@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { NFT } from '@/lib/nfts';
+import type { NFT } from '@/lib/nfts';
 
 interface NFTCardProps {
   nft: NFT;
